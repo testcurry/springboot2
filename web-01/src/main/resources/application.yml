@@ -1,0 +1,12 @@
+#spring:
+#  mvc:
+#    static-path-pattern: /res/**
+#
+#  resources:
+#    static-locations: classpath:/pages
+
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

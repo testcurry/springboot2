@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎访问testcy.com</title>
+</head>
+<body>
+<h2>欢迎访问！6666</h2>
+测试REST：
+<form action="/user" method="get">
+    <input type="submit" value="get">
+</form>
+<br>
+<form action="/user" method="post">
+    <input type="submit" value="post">
+</form>
+<br>
+<form action="/user" method="post">
+    <input name="_method" type="hidden" value="PUT">
+    <input type="submit" value="put">
+</form>
+<br>
+<form action="/user" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+</form>
+<br>
+</body>
+</html>
