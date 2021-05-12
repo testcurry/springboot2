@@ -1,0 +1,37 @@
+person:
+  #Curry \n 李四
+  userName: 'Curry \n 李四'
+  #Curry
+  # 李四
+#  userName: "Curry \n 李四"
+  boss: false
+  birth: 1994/10/15
+  age: 33
+  pet:
+    name: Tom
+    weight: 99.99
+#  interests: [篮球,足球,乒乓球]
+  interests:
+    - 篮球
+    - 足球
+    - 乒乓球
+    - 18
+  animal: [阿狗,阿猫]
+#  score: {english:89,math:99,chinese:88}
+  score:
+    english: 80
+    math: 99
+    chinese: 88
+  salarys: [99.99,88.88,100.99]
+  allPets:
+    sick:
+      - {name: 阿花,weight: 99.99}
+      - name: 阿白
+        weight: 99.88
+      - {name: 阿黑,weight: 99.66}
+    health:
+      - name: tom
+        weight: 66.66
+      - {name: jerry,weigth: 77.44}
+      - name: curry
+        weight: 44.32
