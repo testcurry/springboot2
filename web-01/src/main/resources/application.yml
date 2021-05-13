@@ -10,3 +10,12 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+  datasource:
+    url: 192.168.200.131
+    data-username: root
+    data-password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  config-location: classpath:mybatis/conf/mybatis-conf.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
