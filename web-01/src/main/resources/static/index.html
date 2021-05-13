@@ -5,6 +5,23 @@
     <title>欢迎访问testcy.com</title>
 </head>
 <body>
+<ul>
+    <a href="/car/3/owner/lisi?age=18&interest=basketball&interest=pingpang">/car/{id}/owner/{username}测试</a>
+    <li>@PathVariable(路径变量)</li>
+    <li>@RequestHeader(获取请求头)</li>
+    <li>@RequestParam(获取请求参数)</li>
+    <li>@CookieValue(获取Cookie的值)</li>
+    <li>@RequestBody(获取请求体中的值)</li>
+    <li>@RequestAttribute(获取request域属性值)</li>
+    <li>@MatrixVariable(矩阵变量)</li>
+</ul>
+
+<form action="/save" method="post">
+    用户名称：<input type="text" name="username"><br>
+    用户密码：<input type="text" name="password"><br>
+    <input type="submit" value="提交"><br>
+</form>
+
 <h2>欢迎访问！6666</h2>
 测试REST：
 <form action="/user" method="get">
@@ -16,12 +33,14 @@
 </form>
 <br>
 <form action="/user" method="post">
-    <input name="_method" type="hidden" value="PUT">
+<!--    <input name="_method" type="hidden" value="PUT">-->
+    <input name="_m" type="hidden" value="PUT">
     <input type="submit" value="put">
 </form>
 <br>
 <form action="/user" method="post">
-    <input type="hidden" name="_method" value="DELETE">
+<!--    <input name="_method" type="hidden" value="delete">-->
+    <input type="hidden" name="_m" value="DELETE">
     <input type="submit" value="delete">
 </form>
 <br>
