@@ -1,5 +1,6 @@
 package com.testcy.boot.controller;
 
+import javafx.beans.binding.ObjectExpression;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -60,13 +61,44 @@ public class CommonAnnationController {
     @PostMapping("/save")
     public Map save(/*@RequestParam("username") String name,
                                     @RequestParam("password") String password,*/
-                                    @RequestBody String body) {
+            @RequestBody String body) {
 
         HashMap<String, String> map = new HashMap<>();
 //        map.put("name", name);
 //        map.put("pwd", password);
         map.put("body", body);
+        return map;
+    }
 
+    ///cars/sell;low=34;brand=byd,audi,yd
+    //spring boot默认是禁用了矩阵变量的功能
+    // 我们需要手动开启，UrlPathHelper进行解析路径参数，
+    // removeSemicolonContent是支持矩阵变量的属性，默认是true
+    @GetMapping("/cars/{path}")
+    public Map carsSell(@MatrixVariable("low") Integer low,
+                        @MatrixVariable("brand") List<String> brand,
+                        @PathVariable("path") String path) {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("low", low);
+        map.put("brand", brand);
+        map.put("path", path);
+        return map;
+    }
+
+//    /boss/1;age=20/2;age=10
+
+    @GetMapping("/boss/{bossId}/{empId}")
+    public Map boss(@MatrixVariable(value = "age",pathVar = "bossId") Integer bossAge,
+                    @MatrixVariable(value = "age",pathVar = "empId") Integer empAge,
+                    @PathVariable("bossId") String bossId,
+                    @PathVariable("empId") String empId){
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("bossAge", bossAge);
+        map.put("empAge", empAge);
+        map.put("bossId", bossId);
+        map.put("empId", empId);
         return map;
     }
 

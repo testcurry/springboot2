@@ -16,6 +16,11 @@
     <li>@MatrixVariable(矩阵变量)</li>
 </ul>
 
+<a href="/cars/sell;low=34;brand=byd,audi,yd">@MatrixVariable(矩阵变量)</a><br>
+<a href="/cars/sell;low=34;brand=byd;brand=audi;brand=yd">@MatrixVariable(矩阵变量)</a><br>
+<a href="/boss/1;age=20/2;age=10">@MatrixVariable(矩阵变量)/boss/{bossId}/{empId}</a>
+<br>
+
 <form action="/save" method="post">
     用户名称：<input type="text" name="username"><br>
     用户密码：<input type="text" name="password"><br>
@@ -33,16 +38,28 @@
 </form>
 <br>
 <form action="/user" method="post">
-<!--    <input name="_method" type="hidden" value="PUT">-->
+    <!--    <input name="_method" type="hidden" value="PUT">-->
     <input name="_m" type="hidden" value="PUT">
     <input type="submit" value="put">
 </form>
 <br>
 <form action="/user" method="post">
-<!--    <input name="_method" type="hidden" value="delete">-->
+    <!--    <input name="_method" type="hidden" value="delete">-->
     <input type="hidden" name="_m" value="DELETE">
     <input type="submit" value="delete">
 </form>
 <br>
+测试自定义对象参数：
+<form action="/saveUser" method="post">
+    姓名： <input name="userName" value="Curry"/> <br/>
+    年龄： <input name="age" value="18"/> <br/>
+    生日： <input name="birth" value="1997/02/23"/> <br/>
+<!--    宠物姓名：<input name="pet.name" value="阿猫"/><br/>-->
+<!--    宠物年龄：<input name="pet.age" value="3"/><br>-->
+    宠物年龄：<input name="pet" value="阿猫,3"/><br>
+    <input type="submit" value="保存">
+</form>
+
+
 </body>
 </html>
