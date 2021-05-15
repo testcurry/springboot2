@@ -19,3 +19,7 @@ spring:
 mybatis:
   config-location: classpath:mybatis/conf/mybatis-conf.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+
+#server:
+#  servlet:
+#    context-path: /testcy

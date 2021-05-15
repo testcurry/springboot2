@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>访问成功页面</title>
+</head>
+<body>
+<h2 th:text="${msg}">访问成功66666！</h2><br>
+<a href="www.testcy.com" th:href="${link}">去百度</a><br>
+<a href="www.testcy.com" th:href="@{/link}">去百度2</a><br>
+</body>
+</html>
