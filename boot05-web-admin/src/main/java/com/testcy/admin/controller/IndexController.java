@@ -2,17 +2,31 @@ package com.testcy.admin.controller;
 
 import com.testcy.admin.bean.User;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
 public class IndexController {
+
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @ResponseBody
+    @GetMapping("/sql")
+    public String query() {
+        Long aLong = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM t_teacher", Long.class);
+        return String.valueOf(aLong);
+    }
 
     @GetMapping(value = {"/", "/login"})
     public String loginPage() {
@@ -25,7 +39,7 @@ public class IndexController {
         if (!StringUtils.isEmpty(user.getUserName()) && "123456".equals(user.getPassword())) {
             session.setAttribute("loginUser", user);
             return "redirect:main.html";
-        }else {
+        } else {
             model.addAttribute("msg", "账号或密码错误!");
 //            model.addAttribute("userName", user.getUserName());
             return "login";
@@ -33,7 +47,7 @@ public class IndexController {
     }
 
     @GetMapping("/main.html")
-    public String mainPage(HttpSession session,Model model) {
+    public String mainPage(HttpSession session, Model model) {
      /*   Object loginUser = session.getAttribute("loginUser");
 
         if (loginUser!=null){
@@ -43,7 +57,7 @@ public class IndexController {
             model.addAttribute("msg", "会话超时，请重新登录！");
             return "login";
         }*/
-        log.info("当前方法是：{}","mainPage");
+        log.info("当前方法是：{}", "mainPage");
         return "main";
     }
 
