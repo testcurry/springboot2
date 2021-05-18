@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.servlet.Filter;
 import java.util.Arrays;
 
-//@Configuration
+@Configuration
 public class MyRegistBean {
 
     @Bean
